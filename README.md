@@ -1,67 +1,12 @@
-# Projeto Laravel 10 com AdminLTe
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
+# Projeto MyPolitics
 
-### Passo a passo
-Clone Repositório
-```sh
-git clone -b laravel-10-com-adminlte https://github.com/especializati/setup-docker-laravel.git app-laravel
-```
-```sh
-cd app-laravel
-```
+Esse projeto nasce na necessidade de ter um elemento de analise mais pontual da nossa politica.
 
+O mercado politico tem como olhar em 2 agentes principais.
 
-Crie o Arquivo .env
-```sh
-cp .env.example .env
-```
+O Candidato, quem é ele, de onde vem, qual a cronologia politica que ele tem, quais seus feitos e etc.
 
+E o Partido.
 
-Atualize as variáveis de ambiente do arquivo .env
-```dosini
-APP_NAME=EspecializaTi
-APP_URL=http://localhost:8989
+Este projeto, busca trazer algumas oticas, de como olhar para esse conjunto de dados que é fornecido pelo TSE e disseminar esse conhecimento de forma mais palpavel para a sociedade.
 
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=nome_que_desejar_db
-DB_USERNAME=nome_usuario
-DB_PASSWORD=senha_aqui
-
-CACHE_DRIVER=redis
-QUEUE_CONNECTION=redis
-SESSION_DRIVER=redis
-
-REDIS_HOST=redis
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-```
-
-
-Suba os containers do projeto
-```sh
-docker-compose up -d
-```
-
-
-Acesse o container app
-```sh
-docker-compose exec app bash
-```
-
-
-Instale as dependências do projeto
-```sh
-composer install
-```
-
-
-Gere a key do projeto Laravel
-```sh
-php artisan key:generate
-```
-
-
-Acesse o projeto
-[http://localhost:8989](http://localhost:8989)

@@ -1,14 +1,16 @@
-<h1>
-    Dúvida  {{ $support->id }}</h1>
+<h1>Dúvida - Nº {{ $support->id }}</h1>
     <div>
-        <form style="align: center" action="{{ route('support.store') }}" method="post">
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                {{ $error }}
+            @endforeach
+        @endif
+
+        <form action="{{ route('supports.update', $support->id) }}" method="POST">
             @csrf()
-            Assunto:
+            @method('PUT')
             <input type="text" placeholder="Assunto" name="subject" id="" value="{{ $support->subject }}">
-            <br/>
-            Comentário:
-            <textarea name="body" cols="30" rows="5" placeholder="Descrição" value="{{ $support->body }}"></textarea>
-            <br/>
+            <textarea name="body" cols="30" rows="5" placeholder="Descrição" >{{ $support->body }}</textarea>
             <button type="submit">Edit</button>
         </form>
     </div>

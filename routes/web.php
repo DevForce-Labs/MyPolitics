@@ -8,11 +8,13 @@ use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
 // SUPPORT
-Route::get('/support',              [SupportController::class,          'index'])->name('support.index');
-Route::get('/support/create',       [SupportController::class,          'create'])->name('support.create');
-Route::get('/support/{id}',         [SupportController::class,          'show'])->name('support.show');
-Route::get('/support/{id}/edit',    [SupportController::class,          'edit'])->name('support.edit');
-Route::post('/support',             [SupportController::class,          'store'])->name('support.store');
+Route::get('/supports',                  [SupportController::class, 'index'])->name('supports.index');
+Route::get('/supports/create',           [SupportController::class, 'create'])->name('supports.create');
+Route::get('/supports/{id}',             [SupportController::class, 'show'])->name('supports.show');
+Route::get('/supports/{id}/edit',        [SupportController::class, 'edit'])->name('supports.edit');
+Route::put('/supports/{id}',             [SupportController::class, 'update'])->name('supports.update');
+Route::delete('/supports/{id}',          [SupportController::class, 'destroy'])->name('supports.destroy');
+Route::post('/supports',                 [SupportController::class, 'store'])->name('supports.store');
 
 // FORUM
 Route::get('/forum',                [PoliticController::class,          'forum'])->name('forum.index');

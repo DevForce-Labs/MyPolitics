@@ -20,9 +20,7 @@
         <div class="wrapper">
             <h1>Listagem dos Supports</h1>
 
-            <a class="btn btn-primary btn-sm" href="{{ route('support.create') }}" role="button">Create</a>
-            {{-- <a class="btn btn-primary btn-sm" href="{{ route('support.edit') }}"   role="button">Edit</a> --}}
-            {{-- <a class="btn btn-primary btn-sm" href="{{ route('support.delete') }}" role="button">Delete</a> --}}
+            <a class="btn btn-primary btn-sm" href="{{ route('supports.create') }}" role="button">Create</a>
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <th>Código</th>
@@ -40,8 +38,8 @@
                         <td>{{ $supp->status }}</td>
                         <td>{{ $supp->body }}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="{{ route('support.show', $supp->id) }}" role="button">View</a>
-                            <a class="btn btn-primary btn-sm" href="{{ route('support.edit', $supp->id) }}" role="button">Edit</a>
+                            <a class="btn btn-primary btn-sm" href="{{ route('supports.show', $supp->id) }}" role="button">View</a>
+                            <a class="btn btn-primary btn-sm" href="{{ route('supports.edit', $supp->id) }}" role="button">Edit</a>
                         </td>
                         </tr>    
                     @endforeach

@@ -11,3 +11,6 @@ docker-compose exec app bash
 Comando que criar Model / Migration / Controller
 
 -> php artisan make:model Singular -mc
+
+
+php artisan make:request StoreSupportRequest

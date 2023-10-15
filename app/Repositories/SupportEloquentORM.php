@@ -1,11 +1,12 @@
 <?php
 
-// namespace App\Repositories;
+namespace App\Repositories;
 
 use App\DTO\{CreateSupportDTO};
-use App\DTO\UpdateSupportDTO;
+use App\DTO\{UpdateSupportDTO};
 use App\Models\Support;
 use App\Repositories\SupportRepositoryInterface;
+use stdClass;
 
 class SupportEloquentORM implements SupportRepositoryInterface
 {
@@ -30,24 +31,45 @@ class SupportEloquentORM implements SupportRepositoryInterface
                     // 6.30 aula 22
     }
 
-    public function findOne(string $id): stdClass|null
+    public function findOne(string $id): stdClass |null
     {
+        // $support = (object) $this->model->find($id)->toArray();
+
+        $support = $this->model->find($id);
+
+        if (!$support) {
+            return null;
+        }
+
+        return (object) $support->toArray();
 
     }
 
     public function delete(string $id): void
     {
-
+        $this->model->findOrFail($id)-delete();
     }
 
     public function new(CreateSupportDTO $dto): stdClass
     {
+        $support = $this->model->create(
+            (array) $dto
+        );
 
+        return (object) $support->toArray();
     }
 
     public function update(UpdateSupportDTO $dto): stdClass|null
     {
+        if ($support = $this->model->find($dto->id)) {
+            return null;
+        }
 
+        $support->update(
+            (array) $dto
+        );
+
+        return (object) $support->toArray();
     }
 
 }

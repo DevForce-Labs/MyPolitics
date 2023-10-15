@@ -16,6 +16,7 @@ class SupportEloquentORM implements SupportRepositoryInterface
 
     public function getAll(string $filter = null): array
     {
+        // dd($this->model->all()->toArray());
         return $this->model
                     ->where(function ($query) use ($filter) { 
                         if($filter) {
@@ -25,13 +26,13 @@ class SupportEloquentORM implements SupportRepositoryInterface
                         }
                     })
                     // ->paginate()
-                    ->all()
+                    ->get()
                     ->toArray();
 
                     // 6.30 aula 22
     }
 
-    public function findOne(string $id): stdClass |null
+    public function findOne(string $id): stdClass|null
     {
         // $support = (object) $this->model->find($id)->toArray();
 
